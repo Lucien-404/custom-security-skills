@@ -1,8 +1,26 @@
-# Skill
+# custom-security-skills
 
-自定义 Claude Code Skill 合集。每个 skill 是一个独立目录，内含描述触发规则和输出规范的 `SKILL.md` 文件。
+自定义安全方向 Skill 合集，聚焦网络安全与取证分析场景。每个 skill 是一个独立目录，内含描述触发规则和输出规范的 `SKILL.md` 文件。
 
-将本仓库克隆到本地后，在 Claude Code 中通过 `/config` → "Skills" 页签 → "Add skill directory" 加载对应技能目录即可生效。
+## 目录结构
+
+```
+custom-security-skills/
+├── README.md
+├── agent-handoff/
+│   └── SKILL.md
+├── bruteforce-login/
+│   ├── SKILL.md
+│   ├── references/
+│   │   ├── drissionpage-patterns.md
+│   │   ├── library-selection.md
+│   │   └── playwright-patterns.md
+│   ├── evals/
+│   │   └── evals.json
+│   └── scripts/                 # 生成的爆破脚本存放目录
+└── server-forensics/
+    └── SKILL.md
+```
 
 ## 已有技能
 
@@ -21,8 +39,8 @@
 
 `SKILL.md` frontmatter 关键字段：
 - `name` — skill 标识符（kebab-case）
-- `description` — 触发匹配说明，Claude 用这段文字来判断何时调用该技能
+- `description` — 触发匹配说明，AI 用这段文字来判断何时调用该技能
 
 ## 贡献技能
 
-需要新建或修改技能时，直接在 Claude Code 会话中说「帮我创建一个 skill，功能是…」等指令，Claude 会自动调用 `/skill-creator` 引导完成。
+需要新建或修改技能时，在会话中说「帮我创建一个 skill，功能是…」即可开始。
